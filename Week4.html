@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Homepage</title>
+
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/flexboxes.css">
+  <link rel="stylesheet" href="assets/nav.css">
+  <link rel="stylesheet" href="assets/typography.css">
+
+  <style>
+    body {
+      background-color: #96bcf4;
+      margin: 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      color: #fff;
+    }
+
+    .title { display: none; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .vertical-buttons {
+      margin-top: 50px;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .vertical-buttons li a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 150px;
+      font-size: 28px;
+      color: white;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: transform 0.25s ease;
+    }
+
+    .vertical-buttons li a::before {
+      content: "🏠";
+      font-size: 30px;
+      margin-right: 4px;
+    }
+
+    .vertical-buttons li a:hover {
+      transform: scale(1.2);
+    }
+
+    h1,
+    .center-title {
+      color: #000000;
+    }
+
+    h1 {
+      margin-top: 24px;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    .center-title {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    img.schets {
+      width: 100%;
+      height: auto;          
+      max-width: 400px;
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      cursor: zoom-in;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    img.small-img {
+      max-width: 250px;
+    }
+
+    img.schets:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .img-center {
+      display: flex;
+      justify-content: center;
+      margin: 25px 0;
+    }
+
+    #imageOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: default;
+      z-index: 9999;
+    }
+
+    #imageOverlay img {
+      max-width: 95vw;
+      max-height: 95vh;
+      border-radius: 8px;
+    }
+
+    strong {
+      color: #000000;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <ul class="vertical-buttons">
+      <li><a href="index.html">HOME</a></li>
+    </ul>
+
+    <h1>Week 4</h1>
+
+    <div class="documentatie">
+
+      <p>Op 06/10 kregen we de opdracht om onze mid fidelity schermen aan te passen en te verbeteren gebaseerd op feedback.</p>
+
+
+           <p>Voor de <strong>overzichtsscherm</strong> is er niet veel aangepast.
+           <br>Het viel op dat er veel plaats verloren ging door de blauwe spatiëring tussen de bestemminge en heb dus per bestemming meer grijs/wit voorzien.
+           Dit oogt rustgevender en hierdoor kunnen de tussenstops onder de eindbestemmingen staan.
+           <br>Dit creëert meer ruimte rechts voor de status, treinnummer & type. Ook is er een kolom voor de perrons voorzien.
+
+
+           <p>De lichtblauwe achtergrond bovenaan zorgt voor meer leesbaarheid. De minuten bij de status zijn weggelaten want dat was overbodig en "geannuleerd" is gewijzigd naar een kruis.
+           Ook de lijnverdeling tussen treintype en trein nummer is weggelaten aangezien ze een beetje bij elkaar horen.</p>
+
+
+      <div class="img-center">
+        <img src="imageWeek4/MidFi4.png" class="schets" onclick="openSlider(0)">
+      </div>
+          
+       <p>Voor de <strong>perron scherm</strong> heb ik dezelfde wijzigingen aangebracht dan bij het overzichtsscherm.
+           <br>Rechtsboven staat het perronnummer en de tussenstops staan mee in het lichtblauw zodat het leesbaarder is.</p>
+
+      <div class="img-center">
+        <img src="imageWeek4/MidFi5.png" class="schets small-img" onclick="openSlider(1)">
+      </div>
+
+
+           <p>Voor het <strong>wagon scherm</strong> heb ik weer dezelfde wijzigingen aangebracht.
+           <br>Het treintype en nummer staan rechtsboven, waar eerst de logo ging komen.
+           Dit zorgt ervoor dat het boven mooi verdeeld is. De eerstvolgende halte staat in het vet zodat het meer opvalt.
+           Rechts staat de legende met wit achtergrond om de evenwicht tussen wit en grijs gelijk te stellen.</p>
+     
+      <div class="img-center">
+        <img src="imageWeek4/MidFi6.png" class="schets" onclick="openSlider(2)">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="imageOverlay">
+    <span id="leftArrow" class="arrow" onclick="prevImage()">❮</span>
+    <img id="overlayImg" src="">
+    <span id="rightArrow" class="arrow" onclick="nextImage()">❯</span>
+  </div>
+
+  <script>
+    const images = [
+      "imageWeek4/MidFi4.png",
+      "imageWeek4/MidFi5.png",
+      "imageWeek4/MidFi6.png"
+    ];
+
+    let currentIndex = 0;
+
+    function openSlider(i) {
+      currentIndex = i;
+      document.getElementById("overlayImg").src = images[currentIndex];
+      document.getElementById("imageOverlay").style.display = "flex";
+    }
+
+    function closeSlider() {
+      document.getElementById("imageOverlay").style.display = "none";
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById("overlayImg").src = images[currentIndex];
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      document.getElementById("overlayImg").src = images[currentIndex];
+    }
+
+    document.getElementById("imageOverlay").addEventListener("click", function(e) {
+      if (e.target.id === "imageOverlay") {
+        closeSlider();
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeSlider();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    });
+  </script>
+
+</body>
+</html>
