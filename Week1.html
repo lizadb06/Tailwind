@@ -11,6 +11,16 @@
   <link rel="stylesheet" href="assets/typography.css">
 
   <style>
+    header h2 {
+      margin: 0;
+      padding: 20px;
+      font-size: 20px;
+      font-family: 'Trebuchet MS', sans-serif;
+      color: rgb(0, 0, 0);
+      background-color: #96bcf4;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+    }
+
     body {
       background-color: #96bcf4;
       margin: 0;
@@ -48,9 +58,12 @@
       transition: transform 0.25s ease;
     }
 
-    .vertical-buttons li a::before {
-      content: "🏠";
-      font-size: 32px;
+    .vertical-buttons li a svg {
+      width: 32px;
+      height: 32px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
     }
 
     .vertical-buttons li a:hover {
@@ -145,16 +158,28 @@
 
     #leftArrow { left: 30px; }
     #rightArrow { right: 30px; }
-
   </style>
 
 </head>
 <body>
 
+  <header>
+    <h2>Liza De Beule 1GDM2</h2>
+  </header>
+
   <div class="container">
 
     <ul class="vertical-buttons">
-      <li><a href="index.html">HOME</a></li>
+      <li>
+        <a href="index.html">
+          <!-- Home icoon (SVG, zonder kleur) -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10.5L12 3l9 7.5"></path>
+            <path d="M5 10v10h5v-6h4v6h5V10"></path>
+          </svg>
+          HOME
+        </a>
+      </li>
     </ul>
 
     <h1>Week 1</h1>

@@ -4,74 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projectdocumentatie PPT1</title>
+
   <link href="./dist/output.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/flexboxes.css">
-  <link rel="stylesheet" href="assets/nav.css">
-  <link rel="stylesheet" href="assets/typography.css">
 
   <style>
     body {
       background-color: #96bcf4;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      height: 100%;
+      font-family: 'Trebuchet MS', sans-serif;
     }
 
-    header h2 {
+    /* HEADER */
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 30px;
+      background-color: #96bcf4;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    .header-bar h2 {
       margin: 0;
       padding: 20px;
-      color: rgb(0, 0, 0);
       font-size: 20px;
-      background-color: #a0cbf7;
+      color: #000;
     }
 
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropbtn {
+      background-color: #c59160;
+      color: #000;
+      font-size: 16px;
+      font-weight: normal; 
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .dropbtn:hover {
+      background-color: #b37b4d;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #fff;
+      min-width: 160px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      border-radius: 5px;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    /* zichtbaar bij klik */
+    .dropdown-content.show {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: #000;
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      font-weight: normal;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #96bcf4;
+    }
+
+    /* TITLE */
     .title {
       text-align: center;
       font-size: 50px;
-      font-family: 'Trebuchet MS', sans-serif;
       font-weight: bold;
       margin-top: 20px;
-      color: rgb(255, 255, 255);
+      color: #fff;
     }
 
+    /* WEEK GRID */
     .week-container {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      column-gap: 40px;
-      row-gap: 50px;
-      padding: 40px;
-      max-width: 1600px;
+      gap: 30px;
+      padding: 30px;
+      max-width: 1300px;
       margin: auto;
       justify-items: center;
     }
 
     .week-container a {
       background-color: #8b5a2b;
-      box-shadow: inset 0 0 0px #5c3a1a, 0 4px 6px rgba(0, 0, 0, 0.3);
-
-      width: 250px;    
-      height: 380px;
-
+      width: 180px;
+      height: 310px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       border-radius: 6px;
-
       font-size: 25px;
       text-decoration: none;
-      color: rgb(0, 0, 0);
+      color: #000;
       font-weight: bold;
-
       position: relative;
       transition: transform 0.8s ease;
       transform-origin: left center;
-
       background-image: url(public/img/imageDeur/houtendeur.png);
       background-size: 100% auto;
-      background-position: center;
       background-repeat: no-repeat;
     }
 
@@ -80,28 +130,18 @@
     }
 
     .subtitle {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-size: 18px;
       font-weight: normal;
-      color: rgb(0, 0, 0);
-      margin-top: 4px;
     }
 
-
-    @media (max-width: 1400px) {
-      .week-container {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
+    /* RESPONSIVE */
     @media (max-width: 1100px) {
       .week-container {
         grid-template-columns: repeat(3, 1fr);
-      }
-
-      .week-container a {
-        width: 220px;
-        height: 340px;
-        font-size: 22px;
       }
     }
 
@@ -109,25 +149,12 @@
       .week-container {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .week-container a {
-        width: 200px;
-        height: 310px;
-        font-size: 20px;
-      }
     }
 
     @media (max-width: 500px) {
       .week-container {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
       }
-
-      .week-container a {
-        width: 70%;
-        height: 300px;
-        font-size: 20px;
-      }
-
       .title {
         font-size: 35px;
       }
@@ -136,23 +163,57 @@
 </head>
 
 <body>
-    <header>
-        <h2>Liza De Beule</h2>
-    </header>
 
-    <div class="title">Projectdocumentatie PPT1</div>
+<header class="header-bar">
+  <h2>Liza De Beule 1GDM2</h2>
 
-    <div class="week-container">
-        <a href="week1.html">Week 1<span class="subtitle">Low Fidelity</span></a>
-        <a href="week2.html">Week 2<span class="subtitle">Low Fidelity</span></a>
-        <a href="week3.html">Week 3<span class="subtitle">Mid Fidelity</span></a>
-        <a href="week4.html">Week 4<span class="subtitle">Mid Fidelity</span></a>
-        <a href="week5.html">Week 5<span class="subtitle">High Fidelity</span></a>
-        <a href="week6.html">Week 6<span class="subtitle">ontwerp documentatie</span></a>
-        <a href="week7.html">Week 7<span class="subtitle">Herfstvakantie</span></a>
-        <a href="week8.html">Week 8<span class="subtitle">Geen les</span></a>
-        <a href="week9.html">Week 9<span class="subtitle">TO DO</span></a>
-        <a href="week10.html">Week 10<span class="subtitle">TO DO</span></a>
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown()">Weken ▾</button>
+    <div class="dropdown-content" id="dropdownMenu">
+      <a href="week1.html">Week 1</a>
+      <a href="week2.html">Week 2</a>
+      <a href="week3.html">Week 3</a>
+      <a href="week4.html">Week 4</a>
+      <a href="week5.html">Week 5</a>
+      <a href="week6.html">Week 6</a>
+      <a href="week7.html">Week 7</a>
+      <a href="week8.html">Week 8</a>
+      <a href="week9.html">Week 9</a>
+      <a href="week10.html">Week 10</a>
     </div>
+  </div>
+</header>
+
+<div class="title">Projectdocumentatie PPT1</div>
+
+<div class="week-container">
+  <a href="week1.html">Week 1<span class="subtitle">Low Fidelity</span></a>
+  <a href="week2.html">Week 2<span class="subtitle">Low Fidelity</span></a>
+  <a href="week3.html">Week 3<span class="subtitle">Mid Fidelity</span></a>
+  <a href="week4.html">Week 4<span class="subtitle">Mid Fidelity</span></a>
+  <a href="week5.html">Week 5<span class="subtitle">High Fidelity</span></a>
+  <a href="week6.html">Week 6<span class="subtitle">Ontwerp documentatie</span></a>
+  <a href="week7.html">Week 7<span class="subtitle">Herfstvakantie</span></a>
+  <a href="week8.html">Week 8<span class="subtitle">Geen les</span></a>
+  <a href="week9.html">Week 9<span class="subtitle">TO DO</span></a>
+  <a href="week10.html">Week 10<span class="subtitle">TO DO</span></a>
+</div>
+
+<script>
+  function toggleDropdown() {
+    document.getElementById("dropdownMenu").classList.toggle("show");
+  }
+
+  // sluit dropdown als je ergens anders klikt
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      const dropdown = document.getElementById("dropdownMenu");
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+      }
+    }
+  }
+</script>
+
 </body>
 </html>
