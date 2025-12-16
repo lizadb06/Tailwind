@@ -5,214 +5,214 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projectdocumentatie PPT1</title>
 
-  <link href="./dist/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    
     body {
-      background-color: #96bcf4;
-      margin: 0;
-      padding: 0;
-      font-family: 'Trebuchet MS', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
-    /* HEADER */
-    .header-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-right: 30px;
-      background-color: #96bcf4;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
-    }
-
-    .header-bar h2 {
-      margin: 0;
-      padding: 20px;
-      font-size: 20px;
-      color: #000;
-    }
-
-    /* DROPDOWN */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropbtn {
-      background-color: #c59160;
-      color: #000;
-      font-size: 16px;
-      font-weight: normal; 
-      border: none;
-      padding: 10px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .dropbtn:hover {
-      background-color: #b37b4d;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      background-color: #fff;
-      min-width: 160px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      border-radius: 5px;
-      overflow: hidden;
-      z-index: 10;
-    }
-
-    /* zichtbaar bij klik */
-    .dropdown-content.show {
-      display: block;
-    }
-
-    .dropdown-content a {
-      color: #000;
-      padding: 10px 14px;
-      text-decoration: none;
-      display: block;
-      font-size: 15px;
-      font-weight: normal;
-      transition: background-color 0.2s ease;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #96bcf4;
-    }
-
-    /* TITLE */
-    .title {
-      text-align: center;
-      font-size: 50px;
-      font-weight: bold;
-      margin-top: 20px;
-      color: #fff;
-    }
-
-    /* WEEK GRID */
-    .week-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 30px;
-      padding: 30px;
-      max-width: 1300px;
-      margin: auto;
-      justify-items: center;
-    }
-
-    .week-container a {
-      background-color: #8b5a2b;
-      width: 180px;
-      height: 310px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      font-size: 25px;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-      position: relative;
-      transition: transform 0.8s ease;
-      transform-origin: left center;
-      background-image: url(public/img/imageDeur/houtendeur.png);
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-    }
-
-    .week-container a:hover {
-      transform: perspective(600px) rotateY(35deg);
-    }
-
-    .subtitle {
-      position: absolute;
-      top: 80%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 18px;
-      font-weight: normal;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1100px) {
-      .week-container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 800px) {
-      .week-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .week-container {
-        grid-template-columns: 1fr;
-      }
-      .title {
-        font-size: 35px;
-      }
+    .week-card {
+      transition: transform 0.05s ease-out, background-color 0.3s ease;
+      transform-style: preserve-3d;
     }
   </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#649FE6',
+            secondary: '#A6C6EE',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body>
+<body class="bg-primary m-0 p-0 pt-[70px] font-poppins">
 
-<header class="header-bar">
-  <h2>Liza De Beule 1GDM2</h2>
+<!-- Fixed Header -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between pr-[30px] bg-primary shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
+  <h2 class="m-0 p-5 text-xl text-black">Liza De Beule 1GDM2</h2>
 
-  <div class="dropdown">
-    <button class="dropbtn" onclick="toggleDropdown()">Weken ▾</button>
-    <div class="dropdown-content" id="dropdownMenu">
-      <a href="week1.html">Week 1</a>
-      <a href="week2.html">Week 2</a>
-      <a href="week3.html">Week 3</a>
-      <a href="week4.html">Week 4</a>
-      <a href="week5.html">Week 5</a>
-      <a href="week6.html">Week 6</a>
-      <a href="week7.html">Week 7</a>
-      <a href="week8.html">Week 8</a>
-      <a href="week9.html">Week 9</a>
-      <a href="week10.html">Week 10</a>
+  <div class="relative">
+    <button 
+      class="bg-secondary text-black text-base border-none py-2.5 px-4 rounded cursor-pointer transition-all duration-200 hover:bg-white hover:shadow-[0_2px_4px_rgba(0,0,0,0.3)]" 
+      onclick="toggleDropdown()">
+      Weken ▾
+    </button>
+    <div class="hidden absolute right-0 bg-white min-w-[160px] shadow-[0_4px_6px_rgba(0,0,0,0.3)] rounded overflow-hidden z-10" id="dropdownMenu">
+      <a href="week1.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 1</a>
+      <a href="week2.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 2</a>
+      <a href="week3.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 3</a>
+      <a href="week4.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 4</a>
+      <a href="week5.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 5</a>
+      <a href="week6.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 6</a>
+      <a href="week7.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 7</a>
+      <a href="week8.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 8</a>
+      <a href="week9.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 9</a>
+      <a href="week10.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 10</a>
+      <a href="week11.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 11</a>
+      <a href="week12.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 12</a>
+      <a href="week13.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 13</a>
+      <a href="week14.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] hover:bg-secondary">Week 14</a>
     </div>
   </div>
 </header>
 
-<div class="title">Projectdocumentatie PPT1</div>
-
-<div class="week-container">
-  <a href="week1.html">Week 1<span class="subtitle">Low Fidelity</span></a>
-  <a href="week2.html">Week 2<span class="subtitle">Low Fidelity</span></a>
-  <a href="week3.html">Week 3<span class="subtitle">Mid Fidelity</span></a>
-  <a href="week4.html">Week 4<span class="subtitle">Mid Fidelity</span></a>
-  <a href="week5.html">Week 5<span class="subtitle">High Fidelity</span></a>
-  <a href="week6.html">Week 6<span class="subtitle">Ontwerp documentatie</span></a>
-  <a href="week7.html">Week 7<span class="subtitle">Herfstvakantie</span></a>
-  <a href="week8.html">Week 8<span class="subtitle">Geen les</span></a>
-  <a href="week9.html">Week 9<span class="subtitle">TO DO</span></a>
-  <a href="week10.html">Week 10<span class="subtitle">TO DO</span></a>
+<!-- Page Title -->
+<div class="text-center text-[50px] font-bold mt-5 text-white max-[500px]:text-[35px]">
+  Projectdocumentatie PPT1
 </div>
 
+<!-- Week Cards -->
+<div class="max-w-[1400px] mx-auto px-5 py-12">
+  <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-12 shadow-[8px_8px_20px_rgba(0,0,0,0.3),-4px_-4px_15px_rgba(255,255,255,0.1)] border border-white/20" style="transform: perspective(1000px) rotateX(2deg);">
+    
+    <div class="grid grid-cols-5 gap-5 justify-items-center max-[1100px]:grid-cols-3 max-[800px]:grid-cols-2 max-[500px]:grid-cols-1">
+      <a href="week1.html" class="group week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white relative overflow-visible">
+        <svg class="absolute -top-3 -left-3 w-10 h-10 text-white transition-colors duration-300 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <span class="text-[25px] font-bold mt-0">Week 1</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">Low Fidelity</span>
+      </a>
+
+      <a href="week2.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 2</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">Low Fidelity</span>
+      </a>
+
+      <a href="week3.html" class="group week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white relative overflow-visible">
+        <svg class="absolute -top-3 -left-3 w-10 h-10 text-white transition-colors duration-300 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+        </svg>
+        <span class="text-[25px] font-bold mt-0">Week 3</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">Mid Fidelity</span>
+      </a>
+
+      <a href="week4.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 4</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">Mid Fidelity</span>
+      </a>
+
+      <a href="week5.html" class="group week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white relative overflow-visible">
+        <svg class="absolute -top-3 -left-3 w-10 h-10 text-white transition-colors duration-300 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          <circle cx="9" cy="10" r="1" fill="currentColor"/>
+          <circle cx="15" cy="10" r="1" fill="currentColor"/>
+        </svg>
+        <span class="text-[25px] font-bold mt-0">Week 5</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">High Fidelity</span>
+      </a>
+
+      <a href="week6.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 6</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">Projectdocumentatie</span>
+      </a>
+
+      <a href="week7.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 7</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">Herfstvakantie</span>
+      </a>
+
+      <a href="week8.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 8</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">Geen les</span>
+      </a>
+
+      <a href="week9.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 9</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">TO DO</span>
+      </a>
+
+      <a href="week10.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 10</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">TO DO</span>
+      </a>
+
+      <a href="week11.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 11</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">TO DO</span>
+      </a>
+
+      <a href="week12.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 12</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">TO DO</span>
+      </a>
+
+      <a href="week13.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 13</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">TO DO</span>
+      </a>
+
+      <a href="week14.html" class="week-card bg-secondary w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md no-underline text-black hover:bg-white">
+        <span class="text-[25px] font-bold mt-0">Week 14</span>
+        <span class="mt-2 text-lg font-normal whitespace-nowrap">TO DO</span>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-primary text-black py-6 mt-12 shadow-inner">
+  <div class="max-w-[1400px] mx-auto px-5 text-center">
+    <p class="text-lg">
+      Bekijk de volledige repository:
+      <a href="https://github.com/lizadb06/Tailwind.git" target="_blank" class="text-secondary hover:text-white underline">
+        GitHub
+      </a>
+    </p>
+  </div>
+</footer>
+
+<!-- Scripts -->
 <script>
   function toggleDropdown() {
-    document.getElementById("dropdownMenu").classList.toggle("show");
+    const dropdown = document.getElementById("dropdownMenu");
+    dropdown.classList.toggle("hidden");
   }
 
-  // sluit dropdown als je ergens anders klikt
   window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
+    if (!event.target.matches('button')) {
       const dropdown = document.getElementById("dropdownMenu");
-      if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
+      if (!dropdown.classList.contains('hidden')) {
+        dropdown.classList.add('hidden');
       }
     }
   }
+
+  document.querySelectorAll('.week-card').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const deltaX = x - centerX;
+      const deltaY = y - centerY;
+      
+      const rotateY = (deltaX / centerX) * 25;
+      const rotateX = -(deltaY / centerY) * 25;
+      
+      this.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg)';
+    });
+  });
 </script>
 
 </body>
