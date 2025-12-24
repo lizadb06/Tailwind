@@ -14,6 +14,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.arrow {
+  transition: opacity 0.3s ease;
+}
+
+.arrow:hover {
+  opacity: 0.7;
+}
+
 .week-arrow {
   transition: all 0.2s ease;
   cursor: pointer;
@@ -41,6 +49,36 @@ body {
   transform: scale(1);
   background-color: #A6C6EE;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.trail-dot {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, rgba(180, 180, 180, 0.8) 0%, rgba(140, 140, 140, 0.6) 60%, rgba(100, 100, 100, 0.3) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  filter: blur(2px);
+  box-shadow: 0 0 15px rgba(200, 200, 200, 0.7), 0 0 30px rgba(150, 150, 150, 0.5);
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+.image-container img {
+  height: 350px;
+  width: auto;
+  object-fit: contain;
 }
 </style>
 
@@ -110,16 +148,62 @@ tailwind.config = {
 
     <div class="documentatie">
       <p class="leading-relaxed text-white mb-4">
-        Op 01/12 kregen we de opdracht om ......
+        Op 01/12 kregen we opnieuw de kans om feedback te vragen en verder te werken aan onze Tailwind en GSM schermen
       </p>
-
-      <p class="leading-relaxed text-white">
-        tekst
+      <p class="leading-relaxed text-white mb-4">
+        <strong class="text-black">Tailwind</strong>: Ook deze week heb ik niet verder gewerkt aan mijn Tailwind. 
+      </p>
+      <p class="leading-relaxed text-white mb-4">
+        <strong class="text-black">GSM scherm</strong>: Ik moest veel schermen bijmaken aangezien wij deze later interactief moeten maken.
       </p>
     </div>
-
+    
+    <div class="flex flex-col gap-4 my-[25px] image-container">
+      <!-- Rij 1 -->
+      <div class="flex justify-center">
+        <img src="imageWeek12/gsmLogIn.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
+      </div>
+      
+      <!-- Rij 2 -->
+      <div class="flex justify-center">
+        <img src="imageWeek12/gsmOverzichtsscherm.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(1)">
+      </div>
+      
+      <!-- Rij 3 -->
+      <div class="flex justify-center">
+        <img src="imageWeek12/gsmPerronscherm.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(2)">
+      </div>
+      
+      <!-- Rij 4 -->
+      <div class="flex justify-center">
+        <img src="imageWeek12/gsmWagonscherm.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(3)">
+      </div>
+      
+      <!-- Rij 5 -->
+      <div class="flex justify-center">
+        <img src="imageWeek12/gsmTicket.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(4)">
+      </div>
+      
+      <!-- Rij 6 -->
+      <div class="flex justify-center">
+        <img src="imageWeek12/gsmInstellingen.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(5)">
+      </div>
+      
+      <!-- Rij 7 -->
+      <div class="flex justify-center">
+        <img src="imageWeek12/gsmFavHalte.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(6)">
+      </div>
+    </div>
+    
   </div>
 
+</div>
+
+<!-- Image Overlay Slider -->
+<div id="imageOverlay" class="fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.85)] hidden justify-center items-center cursor-default z-[9999]">
+  <span id="leftArrow" class="arrow absolute top-1/2 left-5 -translate-y-1/2 text-[48px] text-white cursor-pointer select-none p-5" onclick="prevImage()">❮</span>
+  <img id="overlayImg" src="" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+  <span id="rightArrow" class="arrow absolute top-1/2 right-5 -translate-y-1/2 text-[48px] text-white cursor-pointer select-none p-5" onclick="nextImage()">❯</span>
 </div>
 
 <a href="https://github.com/lizadb06/Tailwind.git" target="_blank" class="fixed bottom-6 left-6 z-50 bg-secondary p-3 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition-all duration-200 hover:bg-white hover:scale-110 hover:shadow-[0_6px_16px_rgba(0,0,0,0.5)]" aria-label="GitHub Repository">
@@ -136,7 +220,6 @@ const totalWeeks = 14;
 function goToPreviousWeek() {
   if (currentWeek > 1) {
     const prevWeek = currentWeek - 1;
-    // Weeks 1-11 hebben kleine w
     const fileName = prevWeek <= 11 ? `week${prevWeek}.html` : `Week${prevWeek}.html`;
     window.location.href = fileName;
   }
@@ -145,7 +228,6 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = `Week${nextWeek}.html`;
     window.location.href = fileName;
   }
@@ -164,6 +246,73 @@ window.onclick = function(event) {
     }
   }
 }
+
+// Image Slider functionality
+const images = [
+  "imageWeek12/gsmLogIn.png",
+  "imageWeek12/gsmOverzichtsscherm.png",
+  "imageWeek12/gsmPerronscherm.png",
+  "imageWeek12/gsmWagonscherm.png",
+  "imageWeek12/gsmTicket.png",
+  "imageWeek12/gsmInstellingen.png",
+  "imageWeek12/gsmFavHalte.png"
+];
+
+let currentIndex = 0;
+
+function openSlider(i) {
+  currentIndex = i;
+  document.getElementById("overlayImg").src = images[currentIndex];
+  document.getElementById("imageOverlay").style.display = "flex";
+}
+
+function closeSlider() {
+  document.getElementById("imageOverlay").style.display = "none";
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  document.getElementById("overlayImg").src = images[currentIndex];
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  document.getElementById("overlayImg").src = images[currentIndex];
+}
+
+document.getElementById("imageOverlay").addEventListener("click", function(e) {
+  if (e.target.id === "imageOverlay") {
+    closeSlider();
+  }
+});
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeSlider();
+  if (e.key === "ArrowRight") nextImage();
+  if (e.key === "ArrowLeft") prevImage();
+});
+
+// Magic trail effect
+let lastTime = 0;
+const throttleDelay = 5;
+
+document.addEventListener('mousemove', function(e) {
+  const currentTime = Date.now();
+  
+  if (currentTime - lastTime < throttleDelay) return;
+  lastTime = currentTime;
+  
+  const dot = document.createElement('div');
+  dot.className = 'trail-dot';
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+  
+  document.body.appendChild(dot);
+  
+  setTimeout(() => {
+    dot.remove();
+  }, 3000);
+});
 </script>
 
 </body>

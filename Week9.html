@@ -50,6 +50,29 @@ body {
   background-color: #A6C6EE;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
+.trail-dot {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, rgba(180, 180, 180, 0.8) 0%, rgba(140, 140, 140, 0.6) 60%, rgba(100, 100, 100, 0.3) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  filter: blur(2px);
+  box-shadow: 0 0 15px rgba(200, 200, 200, 0.7), 0 0 30px rgba(150, 150, 150, 0.5);
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
 </style>
 
 <script>
@@ -137,9 +160,9 @@ tailwind.config = {
       </p>
     </div>
 
-    <div class="flex justify-center gap-4 my-[25px]">
-      <img src="imageWeek9/home.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
-      <img src="imageWeek9/homeNieuw.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(1)">
+    <div class="flex flex-col items-center gap-4 my-[25px]">
+      <img src="imageWeek9/homeNieuw.png" class="w-full h-auto max-w-[550px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
+      <img src="imageWeek10/Week1oud.png" class="w-full h-auto max-w-[550px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(1)">
     </div>
 
     <div class="documentatie">
@@ -154,8 +177,7 @@ tailwind.config = {
     </div>
 
     <div class="flex flex-col items-center gap-4 my-[25px]">
-      <img src="imageWeek4/MidFi4.png" class="w-full h-auto max-w-[700px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(2)">
-      <img src="imageWeek9/gsmOud.png" class="w-full h-auto max-w-[700px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(3)">
+      <img src="imageWeek9/gsmOud.png" class="w-full h-auto max-w-[550px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(2)">
     </div>
 
   </div>
@@ -210,9 +232,8 @@ window.onclick = function(event) {
 
 // Image slider functionality
 const images = [
-"imageWeek9/home.png",
 "imageWeek9/homeNieuw.png",
-"imageWeek4/MidFi4.png",
+"imageWeek10/Week1oud.png",
 "imageWeek9/gsmOud.png"
 ];
 
@@ -248,6 +269,27 @@ document.addEventListener("keydown", function(e) {
 if (e.key === "Escape") closeSlider();
 if (e.key === "ArrowRight") nextImage();
 if (e.key === "ArrowLeft") prevImage();
+});
+// Magic trail effect
+let lastTime = 0;
+const throttleDelay = 5;
+
+document.addEventListener('mousemove', function(e) {
+  const currentTime = Date.now();
+  
+  if (currentTime - lastTime < throttleDelay) return;
+  lastTime = currentTime;
+  
+  const dot = document.createElement('div');
+  dot.className = 'trail-dot';
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+  
+  document.body.appendChild(dot);
+  
+  setTimeout(() => {
+    dot.remove();
+  }, 3000);
 });
 </script>
 

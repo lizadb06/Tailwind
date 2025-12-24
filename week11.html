@@ -49,6 +49,29 @@ body {
 .arrow:hover {
   opacity: 0.7;
 }
+.trail-dot {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, rgba(180, 180, 180, 0.8) 0%, rgba(140, 140, 140, 0.6) 60%, rgba(100, 100, 100, 0.3) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  filter: blur(2px);
+  box-shadow: 0 0 15px rgba(200, 200, 200, 0.7), 0 0 30px rgba(150, 150, 150, 0.5);
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
 </style>
 
 <script>
@@ -68,15 +91,15 @@ tailwind.config = {
 </script>
 </head>
 
-<body class="bg-primary m-0 p-0 font-poppins">
-<body class="bg-primary m-0 p-0 pt-[70px] font-poppins"></body>
+<body class="bg-primary m-0 p-0 pt-[70px] font-poppins">
 <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between pr-[30px] bg-primary shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
-<div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-6">
-  <span class="week-arrow text-2xl font-bold text-black" onclick="goToPreviousWeek()">❮</span>
-  <h1 class="text-4xl font-bold text-black">Week 11</h1>
-  <span class="week-arrow text-2xl font-bold text-black" onclick="goToNextWeek()">❯</span>
-</div>
   <h2 class="m-0 p-5 text-xl text-black font-normal">Liza De Beule 1GDM2</h2>
+
+  <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-6">
+    <span class="week-arrow text-2xl font-bold text-black" onclick="goToPreviousWeek()">❮</span>
+    <h1 class="text-4xl font-bold text-black">Week 11</h1>
+    <span class="week-arrow text-2xl font-bold text-black" onclick="goToNextWeek()">❯</span>
+  </div>
 
   <div class="flex items-center gap-[15px]">
     <a href="index.html" class="inline-flex items-center justify-center gap-1.5 bg-secondary text-black text-base no-underline py-2.5 px-4 rounded transition-all duration-200 hover:bg-white hover:shadow-[0_0_12px_rgba(0,0,0,0.4)] hover:scale-110 cursor-pointer">
@@ -111,8 +134,6 @@ tailwind.config = {
   </div>
 </header>
 
-<div class="h-[70px]"></div>
-
 <div class="max-w-[900px] mx-auto py-[30px] px-5">
 
   <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-[8px_8px_20px_rgba(0,0,0,0.3),-4px_-4px_15px_rgba(255,255,255,0.1)] border border-white/20 -mx-[30px]" style="transform: perspective(1000px) rotateX(2deg);">
@@ -121,7 +142,8 @@ tailwind.config = {
       <p class="leading-relaxed text-white mb-4">
         Ook de les van 24/11 kregen we de kans om feedback te vragen en verder te werken aan onze Tailwind en GSM schermen.
       </p>
-       <p class="leading-relaxed text-white mb-4">
+       
+      <p class="leading-relaxed text-white mb-4">
         <strong class="text-black">Tailwind</strong>: Deze week heb ik niet verder gewerkt aan mijn Tailwind. 
       </p>
     </div>
@@ -133,8 +155,7 @@ tailwind.config = {
     </div>
 
     <div class="flex flex-col items-center gap-4 my-[25px]">
-      <img src="imageWeek11/gsmoud.png" class="w-full h-auto max-w-[700px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
-      <img src="imageWeek11/gsmnieuw.png" class="w-full h-auto max-w-[700px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(1)">
+      <img src="imageWeek11/gsmnieuw.png" class="w-full h-auto max-w-[550px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
     </div>
   </div>
 
@@ -153,8 +174,7 @@ tailwind.config = {
 </div>
 
 <script>
-  // Week navigation configuration
-const currentWeek = 11; // VERANDER DIT NAAR 3
+const currentWeek = 11; 
 const totalWeeks = 14;
 
 function goToPreviousWeek() {
@@ -166,7 +186,6 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = nextWeek >= 12 ? `Week${nextWeek}.html` : `week${nextWeek}.html`;
     window.location.href = fileName;
   }
@@ -186,7 +205,6 @@ window.onclick = function(event) {
 }
 
 const images = [
-  "imageWeek11/gsmoud.png",
   "imageWeek11/gsmnieuw.png"
 ];
 
@@ -222,6 +240,27 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "Escape") closeSlider();
   if (e.key === "ArrowRight") nextImage();
   if (e.key === "ArrowLeft") prevImage();
+});
+// Magic trail effect
+let lastTime = 0;
+const throttleDelay = 5;
+
+document.addEventListener('mousemove', function(e) {
+  const currentTime = Date.now();
+  
+  if (currentTime - lastTime < throttleDelay) return;
+  lastTime = currentTime;
+  
+  const dot = document.createElement('div');
+  dot.className = 'trail-dot';
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+  
+  document.body.appendChild(dot);
+  
+  setTimeout(() => {
+    dot.remove();
+  }, 3000);
 });
 </script>
 

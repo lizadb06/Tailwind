@@ -50,6 +50,29 @@ body {
 .arrow:hover {
   opacity: 0.7;
 }
+.trail-dot {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, rgba(180, 180, 180, 0.8) 0%, rgba(140, 140, 140, 0.6) 60%, rgba(100, 100, 100, 0.3) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  filter: blur(2px);
+  box-shadow: 0 0 15px rgba(200, 200, 200, 0.7), 0 0 30px rgba(150, 150, 150, 0.5);
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
 </style>
 
 <script>
@@ -136,7 +159,7 @@ Het bestaat uit lichte kleuren en zwarte lettertypes. Zo is het leesbaarder. De 
 </div>
 
 <p class="leading-relaxed text-white mb-4">
-Voor de <strong class="text-black">perron scherm</strong> is er ook niet veel gewijzigd.
+Voor de <strong class="text-black">perronscherm</strong> is er ook niet veel gewijzigd.
 </p>
 
 <p class="leading-relaxed text-white mb-4">
@@ -148,7 +171,7 @@ De tussenstops zijn doorgetrokken tot heel de breedte en de trein type en nummer
 </div>
 
 <p class="leading-relaxed text-white mb-4">
-Voor de <strong class="text-black">wagon scherm</strong> werd er feedback gegeven op mijn low-fi dat plaats voorzien voor een perron niet nodig is aangezien de passagiers al in de trein zitten.
+Voor de <strong class="text-black">wagonscherm</strong> werd er feedback gegeven op mijn low-fi dat plaats voorzien voor een perron niet nodig is aangezien de passagiers al in de trein zitten.
 </p>
 
 <p class="leading-relaxed text-white">
@@ -246,6 +269,27 @@ document.addEventListener("keydown", function(e) {
 if (e.key === "Escape") closeSlider();
 if (e.key === "ArrowRight") nextImage();
 if (e.key === "ArrowLeft") prevImage();
+});
+// Magic trail effect
+let lastTime = 0;
+const throttleDelay = 5;
+
+document.addEventListener('mousemove', function(e) {
+  const currentTime = Date.now();
+  
+  if (currentTime - lastTime < throttleDelay) return;
+  lastTime = currentTime;
+  
+  const dot = document.createElement('div');
+  dot.className = 'trail-dot';
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+  
+  document.body.appendChild(dot);
+  
+  setTimeout(() => {
+    dot.remove();
+  }, 3000);
 });
 </script>
 
