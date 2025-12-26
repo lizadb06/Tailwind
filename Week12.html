@@ -110,8 +110,7 @@ tailwind.config = {
   </div>
 
   <div class="flex items-center gap-[15px]">
-    <a href="index.html" class="inline-flex items-center justify-center gap-1.5 bg-secondary text-black text-base no-underline py-2.5 px-4 rounded transition-all duration-200 hover:bg-white hover:shadow-[0_0_12px_rgba(0,0,0,0.4)] hover:scale-110 cursor-pointer">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5 stroke-current fill-none stroke-2">
+    <a href="index.html" class="inline-flex items-center justify-center gap-1.5 bg-secondary text-black text-base no-underline py-2.5 px-4 rounded transition-all duration-200 shadow-[0_4px_12px_rgba(0,0,0,0.4)] hover:bg-white hover:shadow-[0_6px_16px_rgba(0,0,0,0.5)] hover:scale-110 cursor-pointer">      <svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5 stroke-current fill-none stroke-2">
         <path d="M3 10.5L12 3l9 7.5"></path>
         <path d="M5 10v10h5v-6h4v6h5V10"></path>
       </svg>
@@ -119,8 +118,7 @@ tailwind.config = {
     </a>
 
     <div class="relative">
-      <button class="bg-secondary text-black text-base border-none py-2.5 px-4 rounded cursor-pointer transition-all duration-200 hover:bg-white hover:shadow-[0_0_12px_rgba(0,0,0,0.4)] hover:scale-110" onclick="toggleDropdown()">
-        Weken ▾
+      <button class="bg-secondary text-black text-base border-none py-2.5 px-4 rounded cursor-pointer transition-all duration-200 shadow-[0_4px_12px_rgba(0,0,0,0.4)] hover:bg-white hover:shadow-[0_6px_16px_rgba(0,0,0,0.5)] hover:scale-110" onclick="toggleDropdown()">        Weken ▾
       </button>
       <div class="hidden absolute right-0 bg-white min-w-[160px] shadow-[0_4px_6px_rgba(0,0,0,0.3)] rounded overflow-hidden z-10" id="dropdownMenu">
         <a href="week1.html" class="text-black py-2.5 px-3.5 no-underline block text-[15px] font-normal hover:bg-secondary">Week 1</a>
@@ -148,50 +146,99 @@ tailwind.config = {
 
     <div class="documentatie">
       <p class="leading-relaxed text-white mb-4">
-        Op 01/12 kregen we opnieuw de kans om feedback te vragen en verder te werken aan onze Tailwind en GSM schermen
+        Op 01/12 kregen we opnieuw de kans om feedback te vragen en verder te werken aan onze Tailwind en GSM schermen.
       </p>
+
       <p class="leading-relaxed text-white mb-4">
         <strong class="text-black">Tailwind</strong>: Ook deze week heb ik niet verder gewerkt aan mijn Tailwind. 
       </p>
+
       <p class="leading-relaxed text-white mb-4">
-        <strong class="text-black">GSM scherm</strong>: Ik moest veel schermen bijmaken aangezien wij deze later interactief moeten maken.
+        <strong class="text-black">Trein-app</strong>: Ik heb veel schermen bijgemaakt, aangezien wij deze later interactief moeten maken.
+      </p>
+
+      <p class="leading-relaxed text-white mb-4">
+        Op de <em>inlogscherm</em> kan de gebruiker veranderen van taal of zich registreren als hij nog geen account heeft.
       </p>
     </div>
     
     <div class="flex flex-col gap-4 my-[25px] image-container">
-      <!-- Rij 1 -->
       <div class="flex justify-center">
         <img src="imageWeek12/gsmLogIn.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
       </div>
-      
-      <!-- Rij 2 -->
+
+       <p class="leading-relaxed text-white mb-4">
+        Na het inloggen komt de gebruiker op de <em>overzichtsscherm</em> terecht. Ook hier kan hij nog veranderen van taal voor het geval dat hij dat vergeten was te doen. 
+        Zo moet hij niet eerst terug uitloggen. Vervolgens kan de gebruiker een route plannen en de vertrektijd veranderen naar aankomsttijd. 
+        Door op het hartje te tikken kan hij zijn favoriete haltes en routes bekijken.
+      </p>
+
+      <p class="leading-relaxed text-white mb-4">
+        Onder "Bestemming" heeft hij een overzicht van de eerst volgende 10 treinen die vertrekken.
+        <br>De treinen die geannuleerd zijn, hebben een rode rand zodat deze extra hard opvallen. 
+        Links staan de uren uitgelijnd en rechts staan de perronnummers uitgelijnd.
+        Onder elke bestemming staan de tussenhaltes en daarna ook nog de treintypes en treinnummers.
+        De gebruiker kan naar beneden scrollen om de overige bestemmingen te zien. De bovenste bestemmingen verdwijnen dan onder de donkerblauwe kader die gefixeerd op het scherm staat.
+      </p>
+
+      <p class="leading-relaxed text-white mb-4">
+        Links beneden kan de gebruiker zijn tickets bekijken. Daarnaast is de home button, dit is dan de overzichtsscherm waar hij zich nu bevindt. Als laatste is er rechts een knop om naar instellingen te gaan.
+      </p>
+
       <div class="flex justify-center">
         <img src="imageWeek12/gsmOverzichtsscherm.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(1)">
       </div>
       
-      <!-- Rij 3 -->
+      <p class="leading-relaxed text-white mb-4">
+        Als de gebruiker bij de overzichtsscherm een eindbestemming kiest, komt hij bij de <em>perronscherm</em>.
+        <br>Hier kan hij rechtsboven met het pijltje terug naar de overzichtsscherm. 
+        Alles is hetzelfde gebleven alleen heeft hij nu een overzicht van alle tijdstippen voor Voeren. Onder "Voeren" staan al de tussenhaltes weergegeven.
+      </p>
+
+      <p class="leading-relaxed text-white mb-4">
+        Onder "Voeren" staan al de tussenhaltes weergegeven met opnieuw de uren links uitgelijnd, maar nu staat alleen de treinnummer en treintype rechts uitgelijnd. 
+        De perronnummer staat hier mee in het gefixeerde kader aangezien deze voor al de onderstaande treinen hetzelfde is. 
+        De gebruiker kan op basis van het tijdstip waarop hij naar een bestemming wil reizen een trein selecteren.
+        Vervolgens heeft hij de mogelijkheid om voor die trein een ticket te kopen.
+      </p>
+
       <div class="flex justify-center">
         <img src="imageWeek12/gsmPerronscherm.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(2)">
       </div>
+
+      <p class="leading-relaxed text-white mb-4">
+        Als de gebruiker een ticket wilt kopen, heeft hij de optie voor een enkele rit of een heen en terug rit. De tweede foto verschijnt alleen als hij dit doet via de ticket knop, aangezien er dan nog geen bestemming is geselecteerd. 
+        Na aankoop verschijnt het ticket met een korte beschrijving van het type rit dat het bevat.
+      </p>
       
-      <!-- Rij 4 -->
       <div class="flex justify-center">
-        <img src="imageWeek12/gsmWagonscherm.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(3)">
+        <img src="imageWeek12/gsmTicket.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(3)">
       </div>
       
-      <!-- Rij 5 -->
+      <p class="leading-relaxed text-white mb-4">
+        Als hij de ticket aantikt, belandt hij op het <em>wagonscherm</em>. Hier kan hij links boven zijn ticket bekijken of laten scannen. De gebruiker krijgt een overzicht van al de tussenhaltes met de tijdstippen links uitgelijnd.
+        <br>De wagonindeling kan hij volledig bekijken door deze horizontaal te scrollen. Hij kan dit samen met de bijhorende legende inklappen.
+      </p>
+
       <div class="flex justify-center">
-        <img src="imageWeek12/gsmTicket.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(4)">
+        <img src="imageWeek12/gsmWagonscherm.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(4)">
       </div>
       
-      <!-- Rij 6 -->
+      <p class="leading-relaxed text-white mb-4">
+        Als de gebruiker op het hartje icoon drukt, komt hij op dit scherm terecht. Deze heb ik twee keer gemaakt. Eentje voor de overzichtsscherm en eentje voor het perronscherm. Zo kan hij terug naar de scherm waar hij eerst was als hij op het pijltje tikt.
+      </p>
+
       <div class="flex justify-center">
-        <img src="imageWeek12/gsmInstellingen.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(5)">
+        <img src="imageWeek12/gsmFavHalte.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(5)">
       </div>
       
-      <!-- Rij 7 -->
+      <p class="leading-relaxed text-white mb-4">
+        Als laatste komt de gebruiker op dit scherm terecht als hij op de instellingen icoon tikt. Hier kan hij verschillende dingen doen, waaronder uitloggen. Als hij dat doet, komt hij terug op de inlogscherm terecht. 
+        Deze scherm heb ik drie keer, aangezien hij ook terug moet kunnen naar de wagonscherm.
+      </p>
+
       <div class="flex justify-center">
-        <img src="imageWeek12/gsmFavHalte.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(6)">
+        <img src="imageWeek12/gsmInstellingen.png" class="rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(6)">
       </div>
     </div>
     
@@ -199,7 +246,6 @@ tailwind.config = {
 
 </div>
 
-<!-- Image Overlay Slider -->
 <div id="imageOverlay" class="fixed top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,0.85)] hidden justify-center items-center cursor-default z-[9999]">
   <span id="leftArrow" class="arrow absolute top-1/2 left-5 -translate-y-1/2 text-[48px] text-white cursor-pointer select-none p-5" onclick="prevImage()">❮</span>
   <img id="overlayImg" src="" class="max-w-[95vw] max-h-[95vh] rounded-lg">
@@ -213,7 +259,7 @@ tailwind.config = {
 </a>
 
 <script>
-// Week navigation configuration
+
 const currentWeek = 12;
 const totalWeeks = 14;
 
@@ -233,7 +279,6 @@ function goToNextWeek() {
   }
 }
 
-// Dropdown functionality
 function toggleDropdown() {
   document.getElementById("dropdownMenu").classList.toggle("hidden");
 }
@@ -247,15 +292,14 @@ window.onclick = function(event) {
   }
 }
 
-// Image Slider functionality
 const images = [
   "imageWeek12/gsmLogIn.png",
   "imageWeek12/gsmOverzichtsscherm.png",
   "imageWeek12/gsmPerronscherm.png",
-  "imageWeek12/gsmWagonscherm.png",
   "imageWeek12/gsmTicket.png",
-  "imageWeek12/gsmInstellingen.png",
-  "imageWeek12/gsmFavHalte.png"
+  "imageWeek12/gsmWagonscherm.png",
+  "imageWeek12/gsmFavHalte.png",
+  "imageWeek12/gsmInstellingen.png"
 ];
 
 let currentIndex = 0;

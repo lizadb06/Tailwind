@@ -103,7 +103,7 @@ tailwind.config = {
   </div>
 
   <div class="flex items-center gap-[15px]">
-    <a href="index.html" class="inline-flex items-center justify-center gap-1.5 bg-secondary text-black text-base no-underline py-2.5 px-4 rounded transition-all duration-200 hover:bg-white hover:shadow-[0_0_12px_rgba(0,0,0,0.4)] hover:scale-110 cursor-pointer">
+    <a href="index.html" class="inline-flex items-center justify-center gap-1.5 bg-secondary text-black text-base no-underline py-2.5 px-4 rounded transition-all duration-200 shadow-[0_4px_12px_rgba(0,0,0,0.4)] hover:bg-white hover:shadow-[0_6px_16px_rgba(0,0,0,0.5)] hover:scale-110 cursor-pointer">
       <svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5 stroke-current fill-none stroke-2">
         <path d="M3 10.5L12 3l9 7.5"></path>
         <path d="M5 10v10h5v-6h4v6h5V10"></path>
@@ -112,7 +112,7 @@ tailwind.config = {
     </a>
 
     <div class="relative">
-      <button class="bg-secondary text-black text-base border-none py-2.5 px-4 rounded cursor-pointer transition-all duration-200 hover:bg-white hover:shadow-[0_0_12px_rgba(0,0,0,0.4)] hover:scale-110" onclick="toggleDropdown()">
+      <button class="bg-secondary text-black text-base border-none py-2.5 px-4 rounded cursor-pointer transition-all duration-200 shadow-[0_4px_12px_rgba(0,0,0,0.4)] hover:bg-white hover:shadow-[0_6px_16px_rgba(0,0,0,0.5)] hover:scale-110" onclick="toggleDropdown()">
         Weken ▾
       </button>
       <div class="hidden absolute right-0 bg-white min-w-[160px] shadow-[0_4px_6px_rgba(0,0,0,0.3)] rounded overflow-hidden z-10" id="dropdownMenu">
@@ -141,23 +141,34 @@ tailwind.config = {
 
     <div class="documentatie">
       <p class="leading-relaxed text-white mb-4">
-        Op 08/12 kregen we de opdracht om ......
+        08/12 was de voorlaatste les waar we konden verder werken aan onze taken.
+      </p>
+
+      <p class="leading-relaxed text-white mb-4">
+        <strong class="text-black">Tailwind</strong>: Deze les heb ik wel verder gewerkt aan mijn ontwerpdocumentatie. 
+        Gebaseerd op feedback heb ik de layout gewijzigd en heb ik mijn uitleg bij de weken verder aangevuld. 
+        De achtergrond is gewijzigd naar hetzelfde donkerblauw als het gefixeerde kader en de weken zijn hetzelfde lichtblauw als de achtergrondkleur van mijn treinapp.
       </p>
 
       <p class="leading-relaxed text-white">
-        tekst
+       Mijn naam, klasgroep, de home-button en de dropdown menu heb ik voor elke week in een gefixeerde header geplaatst zodat deze altijd zichtbaar is.
+       <br>In de footer heb ik voor elke week een link naar mijn GitHub geplaatst zoals gevraagd.
       </p>
 
        <div class="flex flex-col gap-4 my-[25px]">
       <div class="flex justify-center gap-4">
-        <img src="imageWeek10/homenieuw.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
-        <img src="imageWeek11/homeOud.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(1)">
+        <img src="imageWeek13/homeNieuw.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
       </div>
       
       <div class="flex justify-center gap-4">
-        <img src="imageWeek10/Week1nieuw.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(2)">
-        <img src="imageWeek11/homeNieuw.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(3)">
+        <img src="imageWeek13/Week1nieuw.png" class="w-full h-auto max-w-[400px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(1)">
       </div>
+
+    <div class="documentatie">
+      <p class="leading-relaxed text-white mb-4">
+        <strong class="text-black">Trein-app</strong>: Deze week heb ik niet verder gewerkt aan mijn trein app aangezien mijn ontwerpdocumentatie veel tijd in beslag nam.
+      </p>
+    </div>
 
     </div>
     </div>
@@ -179,14 +190,12 @@ tailwind.config = {
 </a>
 
 <script>
-// Week navigation configuration
 const currentWeek = 13;
 const totalWeeks = 14;
 
 function goToPreviousWeek() {
   if (currentWeek > 1) {
     const prevWeek = currentWeek - 1;
-    // Weeks 1-11 hebben kleine w, 12-14 hebben hoofdletter W
     const fileName = prevWeek <= 11 ? `week${prevWeek}.html` : `Week${prevWeek}.html`;
     window.location.href = fileName;
   }
@@ -195,13 +204,11 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = `Week${nextWeek}.html`;
     window.location.href = fileName;
   }
 }
 
-// Dropdown functionality
 function toggleDropdown() {
   document.getElementById("dropdownMenu").classList.toggle("hidden");
 }
@@ -217,10 +224,8 @@ window.onclick = function(event) {
 
 // Image slider functionality
 const images = [
-  "imageWeek10/homenieuw.png",
-  "imageWeek11/homeOud.png",
-  "imageWeek10/Week1nieuw.png",
-  "imageWeek11/homeNieuw.png"
+  "imageWeek13/homeNieuw.png",
+  "imageWeek13/Week1nieuw.png"
 ];
 
 let currentIndex = 0;
