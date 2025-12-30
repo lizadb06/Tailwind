@@ -154,7 +154,7 @@ tailwind.config = {
 
        <p class="leading-relaxed text-white mb-4">
         Om te beginnen heb ik de achtergrond veranderd naar een donkerbruine kleur, de header naar een lichtbruine kleur en de titel gecentreerd. 
-        Vervolgens heb ik alle weken in deuren gezet en in één woord beschreven wat de week inhoudt. 
+        Vervolgens heb ik alle weken in deuren veranderd en in één woord beschreven wat de week inhoudt. 
         Als laatste heb ik een animatie toegevoegd zodat de deuren opengaan als ik er met mijn muis overheen ga.
       </p>
     </div>
@@ -172,6 +172,47 @@ tailwind.config = {
       <p class="leading-relaxed text-white mb-4">
         Eerst selecteerde ik een prototype van een iPhone 14 Pro in Figma. Daarna heb ik de grote delen in mijn GSM-scherm gezet en daarna pas de details en knoppen die er eerst nog niet waren. 
         Ik gebruikte hetzelfde blauw als van mijn mid fidelity scherm.
+      </p>
+    </div>
+
+     <div>
+      <p class="leading-relaxed text-white mb-4">
+        Op <strong class="text-black">alle schermen</strong> kan de gebruiker helemaal vanboven verschillende dingen opzoeken zoals dichtbijzijnde haltes. 
+        Rechts boven kan hij een taal naar keuze kiezen. 
+        Daaronder kan hij zijn favoriete haltes en routes bekijken of wijzigen. 
+        Dit doet hij door op het hartjes-icoon te tikken. Ernaast is een knop voorzien zodat de gebruiker een route kan plannen.
+      </p>
+    </div>
+
+    <div>
+      <p class="leading-relaxed text-white mb-4">
+        Vervolgens is er links beneden een knop om zijn tickets te bekijken. 
+        Daarnaast is de home button. <br>Dit brengt hem naar de overzichtsscherm, maar aangezien hij zich daar nu bevindt, doet die knop niets. 
+        <br>Helemaal rechts is er als laatste een knop om naar de instellingen te gaan.
+      </p>
+    </div>
+
+    <div>
+      <p class="leading-relaxed text-white mb-4">
+        Op het <strong class="text-black">overzichtsscherm</strong> heeft de gebruiker onder "Vertrek" een overzicht van de eerst volgende 10 treinen die vertrekken.
+        Links staan de uren uitgelijnd en rechts de perronnummers. Onder elke bestemming staan de tussenhaltes en daarna ook nog de treintypes en treinnummers. 
+        De gebruiker kan naar beneden scrollen om de bedekte bestemmingen te zien. Dit wordt duidelijk gemaakt door de schaduw. 
+        De bovenste bestemmingen verdwijnen dan onder de donkerblauwe kader die gefixeerd staat op het scherm.
+      </p>
+    </div>
+
+    <div>
+      <p class="leading-relaxed text-white mb-4">
+        Op het <strong class="text-black">perronscherm</strong> geldt hetzelfde principe. 
+        Het verschil hier is dat onder "Voeren" eerst alle tussenstops worden weergegeven en dan de eerstvolgende 10 treinen die rijden naar Voeren.
+        In het gefixeerde kader staar rechtsboven 
+      </p>
+    </div>
+
+    <div>
+      <p class="leading-relaxed text-white mb-4">
+        Op het <strong class="text-black">wagonscherm</strong> wordt onder "Voeren" al de tussenstops weergegeven met de bijhorende tijdstippen.
+        Hij kan de wagonindeling volledig bekijken door horizontaal te scrollen. Ook kan hij dit samen met de bijhorende legende in- en uitklappen. 
       </p>
     </div>
 
@@ -196,7 +237,6 @@ tailwind.config = {
 </a>
 
 <script>
-// Week navigation configuration
 const currentWeek = 9;
 const totalWeeks = 14;
 
@@ -209,13 +249,11 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = nextWeek >= 12 ? `Week${nextWeek}.html` : `week${nextWeek}.html`;
     window.location.href = fileName;
   }
 }
 
-// Dropdown functionality
 function toggleDropdown() {
   document.getElementById("dropdownMenu").classList.toggle("hidden");
 }
@@ -229,7 +267,6 @@ window.onclick = function(event) {
   }
 }
 
-// Image slider functionality
 const images = [
 "imageWeek9/homeNieuw.png",
 "imageWeek10/Week1oud.png",
@@ -269,7 +306,6 @@ if (e.key === "Escape") closeSlider();
 if (e.key === "ArrowRight") nextImage();
 if (e.key === "ArrowLeft") prevImage();
 });
-// Magic trail effect
 let lastTime = 0;
 const throttleDelay = 5;
 

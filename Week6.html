@@ -167,7 +167,6 @@ tailwind.config = {
 </a>
 
 <script>
-// Week navigation configuration
 const currentWeek = 6;
 const totalWeeks = 14;
 
@@ -180,13 +179,11 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = nextWeek >= 12 ? `Week${nextWeek}.html` : `week${nextWeek}.html`;
     window.location.href = fileName;
   }
 }
 
-// Lightbox functionality
 const images = [
   'imageWeek6/ontwdoc.png',
   'imageWeek6/ontwdocW1.png'
@@ -226,7 +223,6 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// Dropdown functionality
 function toggleDropdown() {
   document.getElementById("dropdownMenu").classList.toggle("hidden");
 }
@@ -239,7 +235,6 @@ window.onclick = function(event) {
     }
   }
 }
-// Magic trail effect
 let lastTime = 0;
 const throttleDelay = 5;
 

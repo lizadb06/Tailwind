@@ -148,10 +148,41 @@ tailwind.config = {
 
     <div class="documentatie">
       <p class="leading-relaxed text-white mb-4">
-        <strong class="text-black">Trein-app</strong>: Ik heb mij vooral gefocust op de GSM-schermen aangezien deze een soft deadline hadden.
+        <strong class="text-black">Trein-app</strong>: Ik heb mij vooral gefocust op de GSM-schermen aangezien deze een soft deadline hadden. 
+        <br>De knoppen van de tickets en de instellingen zijn dichter bij de home-button geplaatst en de stopcontact icoon in de legende heb ik vervangen door een bliksem om duidelijk te maken dat er elektriciteit is.
+         Mijn GSM-scherm heb ik terug in een rechthoek geplaatst zoals de template het voorstelde omdat de preview er al voor zorgt dat deze afgerond wordt zoals een echte GSM-scherm.
       </p>
     </div>
 
+    <div class="documentatie">
+      <p class="leading-relaxed text-white mb-4">
+        Bovendien heb ik de zoekbalk, de knop voor een route te plannen en de drie schermaanduidingen weggedaan en in de plaats een routeplanner voorzien die gefixeerd staat. 
+        De talen heb ik in een dropdown veranderd zodat deze minder plaats in beslag neemt en ook minder storend is.
+      </p>
+    </div>
+
+    <div class="documentatie">
+      <p class="leading-relaxed text-white mb-4">
+        Vervolgens heb ik bij de tickets ervoor gezorgd dat de gebruiker snel kan zien hoeveel hij er bezit. 
+        <br>Op het wagonscherm heb ik de routeplanner weggedaan, aangezien dit hoogstwaarschijnlijk niet nodig zal hebben. 
+        Hij kan altijd nog via de home-button naar de routeplanner gaan. 
+        <br>Als hij terug naar het wagonscherm wilt, kan dit door op het ticket icoon te tikken en dan op zijn ticket.
+        <br>Ook heb ik het ticket toegevoegd zodat hij deze kan bekijken en laten scannen.
+      </p>
+    </div>
+    
+    <div class="documentatie">
+      <p class="leading-relaxed text-white mb-4">
+        Verder is er op het perronscherm een pijl voorzien om terug naar het overzichtsscherm te gaan, aangezien ik de drie schermaanduidingen heb weggedaan.
+      </p>
+    </div>
+
+    <div class="documentatie">
+      <p class="leading-relaxed text-white mb-4">
+        Als laatste heb ik bij de geannuleerde treinen een rode rand toegevoegd zodat deze extra opvallen. 
+      </p>
+    </div>
+ 
     <div class="flex flex-col items-center gap-4 my-[25px]">
       <img src="imageWeek11/gsmnieuw.png" class="w-full h-auto max-w-[550px] rounded-md shadow-[0_0_12px_rgba(0,0,0,0.4)] cursor-zoom-in transition-all duration-200 hover:scale-105 hover:cursor-pointer" onclick="openSlider(0)">
     </div>
@@ -239,7 +270,6 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "ArrowRight") nextImage();
   if (e.key === "ArrowLeft") prevImage();
 });
-// Magic trail effect
 let lastTime = 0;
 const throttleDelay = 5;
 

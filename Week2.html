@@ -164,7 +164,7 @@ Voor het <strong class="text-black">perronscherm</strong> heb ik mij gebaseerd o
 </p>
 
 <p class="leading-relaxed text-white mb-4">
-De positie waar de tussenstops worden weergegeven zorgt hier voor een duidelijke scheiding tussen de eerstvolgende trein die aankomt en al de andere treinen erna. Dit zorgt ervoor dat de eerstvolgende trein meer de aandacht trekt.
+De positie waar de tussenstops worden weergegeven zorgt hier voor een duidelijke scheiding tussen de eerstvolgende trein die aankomt en al de andere treinen erna. Dit zorgt ervoor dat de eerstvolgende trein meer aandacht trekt.
 </p>
 
 <p class="leading-relaxed text-white">
@@ -209,7 +209,6 @@ Gebaseerd op feedback heb ik een treinindeling toegevoegd en aangeduid waar het 
 </a>
 
 <script>
-// Week navigation configuration
 const currentWeek = 2;
 const totalWeeks = 14;
 
@@ -222,13 +221,11 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = nextWeek >= 12 ? `Week${nextWeek}.html` : `week${nextWeek}.html`;
     window.location.href = fileName;
   }
 }
 
-// Dropdown functionality
 function toggleDropdown() {
 document.getElementById("dropdownMenu").classList.toggle("hidden");
 }
@@ -242,7 +239,6 @@ dropdown.classList.add('hidden');
 }
 }
 
-// Image slider functionality
 const images = [
 "imageWeek2/LowFi10.png",
 "imageWeek2/LowFi11.png",
@@ -283,7 +279,6 @@ if (e.key === "ArrowRight") nextImage();
 if (e.key === "ArrowLeft") prevImage();
 });
 
-// Magic trail effect
 let lastTime = 0;
 const throttleDelay = 5;
 

@@ -154,11 +154,11 @@ tailwind.config = {
       </p>
 
       <p class="leading-relaxed text-white mb-4">
-        <strong class="text-black">Trein-app</strong>: Ik heb veel schermen bijgemaakt, aangezien wij deze later interactief moeten maken.
+        <strong class="text-black">Trein-app</strong>: Ik heb veel schermen bij gemaakt, aangezien wij deze later interactief moeten maken.
       </p>
 
       <p class="leading-relaxed text-white mb-4">
-        Op de <em>inlogscherm</em> kan de gebruiker veranderen van taal of zich registreren als hij nog geen account heeft.
+        Op het <em>inlogscherm</em> kan de gebruiker veranderen van taal of zich registreren als hij nog geen account heeft.
       </p>
     </div>
     
@@ -168,21 +168,8 @@ tailwind.config = {
       </div>
 
        <p class="leading-relaxed text-white mb-4">
-        Na het inloggen komt de gebruiker op de <em>overzichtsscherm</em> terecht. Ook hier kan hij nog veranderen van taal voor het geval dat hij dat vergeten was te doen. 
-        Zo moet hij niet eerst terug uitloggen. Vervolgens kan de gebruiker een route plannen en de vertrektijd veranderen naar aankomsttijd. 
-        Door op het hartje te tikken kan hij zijn favoriete haltes en routes bekijken.
-      </p>
-
-      <p class="leading-relaxed text-white mb-4">
-        Onder "Bestemming" heeft hij een overzicht van de eerst volgende 10 treinen die vertrekken.
-        <br>De treinen die geannuleerd zijn, hebben een rode rand zodat deze extra hard opvallen. 
-        Links staan de uren uitgelijnd en rechts staan de perronnummers uitgelijnd.
-        Onder elke bestemming staan de tussenhaltes en daarna ook nog de treintypes en treinnummers.
-        De gebruiker kan naar beneden scrollen om de overige bestemmingen te zien. De bovenste bestemmingen verdwijnen dan onder de donkerblauwe kader die gefixeerd op het scherm staat.
-      </p>
-
-      <p class="leading-relaxed text-white mb-4">
-        Links beneden kan de gebruiker zijn tickets bekijken. Daarnaast is de home button, dit is dan de overzichtsscherm waar hij zich nu bevindt. Als laatste is er rechts een knop om naar instellingen te gaan.
+        Na het inloggen komt de gebruiker op het <em>overzichtsscherm</em> terecht. Ook hier kan hij nog veranderen van taal voor het geval hij dat vergeten was te doen. 
+        Zo moet hij niet eerst terug uitloggen. Net zoals de taal, kan de vertrektijd gewijzigd worden naar de aankomsttijd.
       </p>
 
       <div class="flex justify-center">
@@ -190,16 +177,9 @@ tailwind.config = {
       </div>
       
       <p class="leading-relaxed text-white mb-4">
-        Als de gebruiker bij de overzichtsscherm een eindbestemming kiest, komt hij bij de <em>perronscherm</em>.
-        <br>Hier kan hij rechtsboven met het pijltje terug naar de overzichtsscherm. 
-        Alles is hetzelfde gebleven alleen heeft hij nu een overzicht van alle tijdstippen voor Voeren. Onder "Voeren" staan al de tussenhaltes weergegeven.
-      </p>
-
-      <p class="leading-relaxed text-white mb-4">
-        Onder "Voeren" staan al de tussenhaltes weergegeven met opnieuw de uren links uitgelijnd, maar nu staat alleen de treinnummer en treintype rechts uitgelijnd. 
-        De perronnummer staat hier mee in het gefixeerde kader aangezien deze voor al de onderstaande treinen hetzelfde is. 
-        De gebruiker kan op basis van het tijdstip waarop hij naar een bestemming wil reizen een trein selecteren.
-        Vervolgens heeft hij de mogelijkheid om voor die trein een ticket te kopen.
+        Wanneer de gebruiker bij de overzichtsscherm een eindbestemming kiest, komt hij op het <em>perronscherm</em> terecht.
+        Als hij op een eindbestemming tikt, kan hij voor die rit een ticket kopen. Dit kan hij inklappen door opnieuw op de bestemming te tikken.
+        
       </p>
 
       <div class="flex justify-center">
@@ -207,7 +187,8 @@ tailwind.config = {
       </div>
 
       <p class="leading-relaxed text-white mb-4">
-        Als de gebruiker een ticket wilt kopen, heeft hij de optie voor een enkele rit of een heen en terug rit. De tweede foto verschijnt alleen als hij dit doet via de ticket knop, aangezien er dan nog geen bestemming is geselecteerd. 
+        Als de gebruiker een ticket wil kopen, heeft hij de optie voor een enkele rit of een heen- en terug rit. 
+        <br>De tweede foto verschijnt alleen als hij dit doet via de ticket knop, aangezien er dan nog geen bestemming is geselecteerd. 
         Na aankoop verschijnt het ticket met een korte beschrijving van het type rit dat het bevat.
       </p>
       
@@ -216,8 +197,7 @@ tailwind.config = {
       </div>
       
       <p class="leading-relaxed text-white mb-4">
-        Als hij de ticket aantikt, belandt hij op het <em>wagonscherm</em>. Hier kan hij links boven zijn ticket bekijken of laten scannen. De gebruiker krijgt een overzicht van al de tussenhaltes met de tijdstippen links uitgelijnd.
-        <br>De wagonindeling kan hij volledig bekijken door deze horizontaal te scrollen. Hij kan dit samen met de bijhorende legende inklappen.
+        Als hij de ticket aantikt, belandt hij op het <em>wagonscherm</em>.
       </p>
 
       <div class="flex justify-center">
@@ -233,7 +213,7 @@ tailwind.config = {
       </div>
       
       <p class="leading-relaxed text-white mb-4">
-        Als laatste komt de gebruiker op dit scherm terecht als hij op de instellingen icoon tikt. Hier kan hij verschillende dingen doen, waaronder uitloggen. Als hij dat doet, komt hij terug op de inlogscherm terecht. 
+        Als laatste komt de gebruiker op dit scherm terecht als hij op de instellingen icoon tikt. Hier kan hij verschillende dingen doen, waaronder uitloggen. Als hij dat doet, komt hij terug op het inlogscherm terecht. 
         Deze scherm heb ik drie keer, aangezien hij ook terug moet kunnen naar de wagonscherm.
       </p>
 
@@ -336,7 +316,6 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "ArrowLeft") prevImage();
 });
 
-// Magic trail effect
 let lastTime = 0;
 const throttleDelay = 5;
 

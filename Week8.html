@@ -146,7 +146,6 @@ tailwind.config = {
 </a>
 
 <script>
-// Week navigation configuration
 const currentWeek = 8;
 const totalWeeks = 14;
 
@@ -159,13 +158,11 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = nextWeek >= 12 ? `Week${nextWeek}.html` : `week${nextWeek}.html`;
     window.location.href = fileName;
   }
 }
 
-// Dropdown functionality
 function toggleDropdown() {
   document.getElementById("dropdownMenu").classList.toggle("hidden");
 }
@@ -178,7 +175,6 @@ window.onclick = function(event) {
     }
   }
 }
-// Magic trail effect
 let lastTime = 0;
 const throttleDelay = 5;
 

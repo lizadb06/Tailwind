@@ -179,7 +179,6 @@ const currentWeek = 1;
 const totalWeeks = 14;
 
 function goToPreviousWeek() {
-  // Van week 1 terug naar week 14
   window.location.href = 'Week14.html';
 }
 
@@ -247,18 +246,15 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "ArrowLeft") prevImage();
 });
 
-// Magic trail effect
 let lastTime = 0;
-const throttleDelay = 5; // milliseconds between trail dots (zeer dichte lijn)
+const throttleDelay = 5; 
 
 document.addEventListener('mousemove', function(e) {
   const currentTime = Date.now();
   
-  // Throttle trail creation
   if (currentTime - lastTime < throttleDelay) return;
   lastTime = currentTime;
   
-  // Create trail dot everywhere
   const dot = document.createElement('div');
   dot.className = 'trail-dot';
   dot.style.left = e.clientX + 'px';
@@ -266,7 +262,6 @@ document.addEventListener('mousemove', function(e) {
   
   document.body.appendChild(dot);
   
-  // Remove dot after animation completes
   setTimeout(() => {
     dot.remove();
   }, 3000);

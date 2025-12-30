@@ -159,7 +159,8 @@ tailwind.config = {
 
     <div class="documentatie">
       <p class="leading-relaxed text-white mb-4">
-        <strong class="text-black">Trein-app</strong>: De achtergrondkleur is gewijzigd naar volledig blauw zodat het meer naar mijn originele treinschermen leunt. Verder heb ik niets gewijzigd omdat ik vooral bezig was met mijn ontwerpdocumentatie.
+        <strong class="text-black">Trein-app</strong>: De achtergrondkleur is gewijzigd naar volledig blauw zodat het meer naar mijn originele treinschermen leunt. 
+        Verder heb ik niets aangepast.
       </p>
     </div>
 
@@ -184,7 +185,6 @@ tailwind.config = {
 </div>
 
 <script>
-// Week navigation configuration
 const currentWeek = 10;
 const totalWeeks = 14;
 
@@ -197,7 +197,6 @@ function goToPreviousWeek() {
 function goToNextWeek() {
   if (currentWeek < totalWeeks) {
     const nextWeek = currentWeek + 1;
-    // Weeks 12-14 hebben hoofdletter W
     const fileName = nextWeek >= 12 ? `Week${nextWeek}.html` : `week${nextWeek}.html`;
     window.location.href = fileName;
   }
@@ -216,7 +215,6 @@ window.onclick = function(event) {
   }
 }
 
-// Image slider functionality
 const images = [
   "imageWeek10/homenieuw.png",
   "imageWeek10/Week1nieuw.png",
@@ -256,7 +254,6 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "ArrowRight") nextImage();
   if (e.key === "ArrowLeft") prevImage();
 });
-// Magic trail effect
 let lastTime = 0;
 const throttleDelay = 5;
 
