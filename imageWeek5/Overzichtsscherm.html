@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vertrektijden - Stationsoverzicht</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #222;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #111;
+    }
+
+    .board {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: #dbe4f3;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* HEADER */
+    header {
+      background-color: #92b1e3;
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    header span.time {
+      font-size: 1.8rem;
+      margin-right: 1.5rem;
+    }
+
+    /* "Vertrek / Retard / Verzögerung" iets naar links (klein beetje) */
+    header span:nth-child(2) {
+      flex: 1;
+      text-align: left;
+      margin-left: 30px; /* was 40px */
+    }
+
+    /* "Perron" verplaatst mee met kolom rechts */
+    header span:last-child {
+      position: absolute;
+      right: 240px; /* was 225px → iets meer naar rechts, blijft uitgelijnd */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    thead {
+      background-color: #bcd0ef;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #a7bcd9;
+    }
+
+    tr:nth-child(even) {
+      background-color: #e9eef7;
+    }
+
+    /* Kolombreedtes aangepast */
+    td.time {
+      font-weight: 600;
+      width: 5rem; /* iets smaller */
+      white-space: nowrap;
+    }
+
+    td.destination {
+      width: 45%; /* breder, meer plaats voor tekst */
+    }
+
+    td.destination strong {
+      font-size: 1.05rem;
+    }
+
+    td.delay {
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      width: 2.5rem; /* smaller */
+    }
+
+    td.perron {
+      text-align: center;
+      font-weight: 600;
+      width: 2.8rem; /* iets smaller */
+    }
+
+    td.type {
+      text-align: center;
+      color: #333;
+      width: 5.5rem; /* dichterbij */
+    }
+
+    td.nr {
+      text-align: center;
+      color: #555;
+      width: 4rem; /* dichterbij */
+    }
+
+    .cancelled {
+      color: #a00;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="board">
+    <header>
+      <span class="time">15:15</span>
+      <span>Vertrek / Retard / Verzögerung</span>
+      <span>Perron</span>
+    </header>
+
+    <table>
+      <tbody>
+        <tr>
+          <td class="time">15:18</td>
+          <td class="destination">
+            <strong>Namen / Namur</strong><br>
+            Oostende – Brugge – Gent-Sint-Pieters – Brussel-Zuid – Brussel-Centraal – Brussel-Noord…
+          </td>
+          <td class="delay">+3</td>
+          <td class="perron">6</td>
+          <td class="type">InterCity</td>
+          <td class="nr">2419</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:22</td>
+          <td class="destination">
+            <strong>Voeren / Fourons</strong><br>
+            Kortrijk – Brussel-Zuid – Luik-Guillemins – Maastricht – Eijsden
+          </td>
+          <td class="delay cancelled">X</td>
+          <td class="perron">2</td>
+          <td class="type">InterCity</td>
+          <td class="nr">13</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:26</td>
+          <td class="destination"><strong>Namen</strong></td>
+          <td class="delay">-1</td>
+          <td class="perron"></td>
+          <td class="type">InterCity</td>
+          <td class="nr">2419</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:31</td>
+          <td class="destination"><strong>Antw.-Centraal</strong></td>
+          <td class="delay"></td>
+          <td class="perron"></td>
+          <td class="type">InterCity</td>
+          <td class="nr">08</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:37</td>
+          <td class="destination"><strong>Antw.-Centraal</strong></td>
+          <td class="delay"></td>
+          <td class="perron"></td>
+          <td class="type">InterCity</td>
+          <td class="nr">1500</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:40</td>
+          <td class="destination"><strong>Antw.-Centraal</strong></td>
+          <td class="delay"></td>
+          <td class="perron"></td>
+          <td class="type">InterCity</td>
+          <td class="nr">1500</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:44</td>
+          <td class="destination"><strong>Antw.-Centraal via Brussel-Schuman</strong></td>
+          <td class="delay"></td>
+          <td class="perron"></td>
+          <td class="type">InterCity</td>
+          <td class="nr">1500</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:49</td>
+          <td class="destination"><strong>Straatsburg</strong></td>
+          <td class="delay"></td>
+          <td class="perron"></td>
+          <td class="type">TGV</td>
+          <td class="nr">INOUÏ</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:52</td>
+          <td class="destination"><strong>Brussels Airport-Zaventem</strong></td>
+          <td class="delay"></td>
+          <td class="perron"></td>
+          <td class="type">InterCity</td>
+          <td class="nr">1500</td>
+        </tr>
+
+        <tr>
+          <td class="time">15:58</td>
+          <td class="destination"><strong>Brussels Airport-Zaventem</strong></td>
+          <td class="delay"></td>
+          <td class="perron"></td>
+          <td class="type">InterCity</td>
+          <td class="nr">27</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wagonscherm - Voeren/Fourons</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #222;
+      font-family: Arial, sans-serif;
+      color: #000;
+    }
+    .screen {
+      width: 1400px;
+      margin: 2rem auto;
+      background-color: #7a9bc9;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    header {
+      background-color: #a8c5e8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      font-weight: bold;
+    }
+    header .time {
+      font-size: 3.5rem;
+    }
+    header .destination {
+      flex: 1;
+      text-align: center;
+      font-size: 3.5rem;
+    }
+    header .train {
+      font-size: 3.5rem;
+      text-align: right;
+    }
+    .content-area {
+      display: flex;
+      padding: 2rem;
+      gap: 3rem;
+    }
+    .schedule {
+      flex: 0 0 auto;
+      position: relative;
+    }
+    .schedule::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: calc(100% - 1rem);
+      right: 110px;
+      width: 3px;
+      background-color: #888;
+    }
+    .schedule-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      background-color: #d9d9d9;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .schedule-row:nth-child(odd) {
+      background-color: #c9d4e5;
+    }
+    .schedule-time {
+      font-size: 2.5rem;
+      font-weight: normal;
+      padding: 1rem 1.5rem;
+      white-space: nowrap;
+    }
+    .schedule-station {
+      font-size: 2.5rem;
+      font-weight: normal;
+      padding: 1rem 1.5rem;
+      min-width: 350px;
+    }
+    .schedule-station strong {
+      font-weight: bold;
+    }
+    .schedule-delay {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: red;
+      padding: 1rem 1.5rem;
+      min-width: 80px;
+      text-align: center;
+    }
+    .info-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .icons {
+      background-color: white;
+      border-radius: 20px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      font-size: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .icons div {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-weight: bold;
+    }
+    .icons span {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .arrow-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 3rem;
+      margin-top: 2rem;
+    }
+    .arrow {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .train-diagram {
+      padding: 0 2rem 2rem 2rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      gap: 1.5rem;
+    }
+    .car {
+      background-color: #d9d9d9;
+      border-radius: 25px;
+      width: 240px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Aangepaste afronding linkse en rechtse wagons */
+    .car:first-child {
+      border-top-left-radius: 60px;
+    }
+    .car:last-child {
+      border-top-right-radius: 60px;
+    }
+
+    .car-icons {
+      font-size: 3rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .car-label {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <header>
+      <div class="time">15:26</div>
+      <div class="destination">Voeren/Fourons</div>
+      <div class="train">IC&nbsp;&nbsp;13</div>
+    </header>
+    
+    <div class="content-area">
+      <div class="schedule">
+        <div class="schedule-row">
+          <div class="schedule-time">15:30</div>
+          <div class="schedule-station"><strong>Kortrijk</strong></div>
+          <div class="schedule-delay">+1</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">15:38</div>
+          <div class="schedule-station">Brussel-Zuid</div>
+          <div class="schedule-delay"></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">15:48</div>
+          <div class="schedule-station">Luik-Guillemins</div>
+          <div class="schedule-delay">+2</div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">15:55</div>
+          <div class="schedule-station">Maastricht</div>
+          <div class="schedule-delay"></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-time">16:09</div>
+          <div class="schedule-station">Eijsden</div>
+          <div class="schedule-delay"></div>
+        </div>
+      </div>
+      
+      <div class="info-section">
+        <div class="icons">
+          <div><span>🔌</span> Stopcontact</div>
+          <div><span>👪</span> Familie toegankelijk</div>
+          <div><span>♿</span> Rolstoelgebruikers</div>
+          <div><span>🚲</span> Fiets toegankelijk</div>
+        </div>
+        <div class="arrow-container">
+          <div class="arrow">→</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="train-diagram">
+      <div class="car">
+        <div class="car-icons">🔌</div>
+        <div class="car-label">1e klasse</div>
+      </div>
+      <div class="car">
+        <div class="car-icons">🔌 👪 ♿</div>
+        <div class="car-label">2e klasse</div>
+      </div>
+      <div class="car">
+        <div class="car-icons">🔌 ♿</div>
+        <div class="car-label">2e klasse</div>
+      </div>
+      <div class="car">
+        <div class="car-icons">🔌 🚲</div>
+        <div class="car-label">2e klasse</div>
+      </div>
+      <div class="car">
+        <div class="car-icons">🔌</div>
+        <div class="car-label">1e klasse</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

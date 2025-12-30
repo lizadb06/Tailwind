@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perronscherm - Voeren</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #222;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #111;
+    }
+    .screen {
+      width: 400px;
+      margin: 2rem auto;
+      background-color: #dbe4f3;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    .vertical-line {
+      position: absolute;
+      top: 82px;
+      bottom: 0;
+      right: 93px;
+      width: 2px;
+      background-color: #a7bcd9;
+      z-index: 10;
+    }
+    header {
+      background-color: #92b1e3;
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    header .time {
+      font-size: 1.8rem;
+    }
+    header .destination {
+      font-size: 1.6rem;
+      flex: 1;
+      text-align: center;
+    }
+    header .platform {
+      font-size: 1.8rem;
+    }
+    header .route {
+      font-size: 0.9rem;
+      font-weight: normal;
+      margin-top: 0.5rem;
+      text-align: left;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+    th, td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #a7bcd9;
+    }
+    tr:nth-child(even) {
+      background-color: #e8edf6;
+    }
+    tr:nth-child(odd) {
+      background-color: #f2f5fb;
+    }
+    td.time {
+      font-weight: normal;
+      width: 4.5rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+    td.destination {
+      font-weight: 500;
+    }
+    td.delay {
+      color: red;
+      font-weight: 700;
+      text-align: center;
+      width: 2rem;
+      padding-right: 0.3rem;
+    }
+    td.type {
+      text-align: left;
+      color: #333;
+      width: 2rem;
+      padding-left: 0.3rem;
+      padding-right: 0.2rem;
+    }
+    td.nr {
+      text-align: left;
+      color: #555;
+      width: 2rem;
+      padding-left: 0.2rem;
+    }
+    .cancelled {
+      color: #a00;
+    }
+    .footer {
+      background-color: #92b1e3;
+      height: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="vertical-line"></div>
+    <header>
+      <div class="header-top">
+        <div class="time">15:22</div>
+        <div class="destination">Voeren</div>
+        <div class="platform">2</div>
+      </div>
+      <div class="route">Kortrijk – Brussel-Zuid – Luik-Guillemins – Maastricht – Eijsden</div>
+    </header>
+    <table>
+      <tbody>
+        <tr>
+          <td class="time">15:22</td>
+          <td class="destination">Voeren</td>
+          <td class="delay"></td>
+          <td class="type">IC</td>
+          <td class="nr">13</td>
+        </tr>
+        <tr>
+          <td class="time">15:30</td>
+          <td class="destination">Voeren</td>
+          <td class="delay cancelled">X</td>
+          <td class="type">IC</td>
+          <td class="nr">13</td>
+        </tr>
+        <tr>
+          <td class="time">15:42</td>
+          <td class="destination">Voeren</td>
+          <td class="delay">-4</td>
+          <td class="type">IC</td>
+          <td class="nr">13</td>
+        </tr>
+        <tr><td class="time">15:53</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="time">15:50</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="time">15:55</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="time">16:08</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="time">16:14</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="time">16:21</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="time">16:29</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="footer"></div>
+  </div>
+</body>
+</html>
